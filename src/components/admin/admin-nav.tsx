@@ -138,7 +138,7 @@ export function AdminMobileNav() {
       >
         <div className="flex h-16 shrink-0 items-center justify-between border-b border-ivory/10 px-5">
           <Link href="/admin" onClick={close}>
-            <Logo variant="light" className="h-6" />
+            <Logo variant="light" className="h-6 w-6" />
           </Link>
           <button
             type="button"

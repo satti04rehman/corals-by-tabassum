@@ -23,7 +23,7 @@ export default async function AdminLayout({
       <aside className="hidden w-60 shrink-0 flex-col bg-obsidian text-ivory lg:flex">
         <div className="flex h-16 items-center border-b border-ivory/10 px-5">
           <Link href="/admin">
-            <Logo variant="light" className="h-6" />
+            <Logo variant="light" className="h-6 w-6" />
           </Link>
         </div>
         <AdminNav />
