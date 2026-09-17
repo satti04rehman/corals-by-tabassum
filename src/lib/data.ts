@@ -558,12 +558,17 @@ export function getTestimonials() {
 
 // ---------- Coupons ----------
 
+const DEMO_COUPONS: CouponSummary[] = [
+  { code: "WELCOME10", type: "PERCENTAGE", value: 10, minOrder: 5000, maxDiscount: 1500, expiryDate: null },
+  { code: "SALE20", type: "PERCENTAGE", value: 20, minOrder: 15000, maxDiscount: 5000, expiryDate: null },
+];
+
 export async function getCoupon(code: string): Promise<CouponSummary | null> {
   const ready = await isDbReady();
   if (!ready) {
-    return null;
+    const normalized = code.trim().toUpperCase();
+    return DEMO_COUPONS.find((c) => c.code === normalized) ?? null;
   }
-  void ready;
   const coupon = await prisma.coupon.findUnique({
     where: { code: code.toUpperCase() },
   });
