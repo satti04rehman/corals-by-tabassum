@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -35,15 +34,15 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Image */}
+        {/* Video */}
         <div className="relative hidden min-h-[70vh] lg:block">
-          <Image
-            src="/images/products/pearl-earring.jpg"
-            alt="Elegant pearl drop earrings"
-            fill
-            priority
-            sizes="50vw"
-            className="object-cover"
+          <video
+            src="/videos/hero-jewelry.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-obsidian/70 to-transparent" />
         </div>
