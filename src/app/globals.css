@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+:root {
+  --obsidian: #4a3a35;
+  --ivory: #faf6f1;
+  --champagne: #b76e79;
+  --soft-gray: #f2e7e0;
+  --text-gray: #6e5c56;
+  --white: #ffffff;
+  --background: #faf6f1;
+  --foreground: #4a3a35;
+}
+
+@theme inline {
+  --color-obsidian: var(--obsidian);
+  --color-ivory: var(--ivory);
+  --color-champagne: var(--champagne);
+  --color-soft-gray: var(--soft-gray);
+  --color-text-gray: var(--text-gray);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-playfair), ui-serif, Georgia, serif;
+
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+}
+
+@layer base {
+  * {
+    border-color: var(--soft-gray);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    letter-spacing: 0.005em;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--champagne);
+    color: var(--obsidian);
+  }
+
+  /* Fallback visible focus for bare interactive elements that don't already
+     use Tailwind ring utilities (drawer controls, hero dots, cart actions…) */
+  :where(button, [role="button"], a[href], [tabindex]:not([tabindex="-1"])):not(
+      [class*="ring"]
+    ):focus-visible {
+    outline: 2px solid var(--obsidian);
+    outline-offset: 2px;
+  }
+}
+
+@layer utilities {
+  .container-tc {
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-tc {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Admin panel — customer storefront editorial style */
+  .admin-eyebrow {
+    font-size: 10px;
+    font-weight: 300;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--champagne);
+  }
+
+  .admin-title {
+    font-family: var(--font-heading);
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .admin-card {
+    border-radius: 2px;
+    border: 1px solid rgb(17 17 17 / 0.12);
+    background-color: var(--white);
+  }
+
+  .admin-th {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgb(17 17 17 / 0.5);
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .heading {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee var(--marquee-duration, 32s) linear infinite;
+}
+
+.marquee-paused:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+@keyframes scroll-hint {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
+  }
+}
+
+.animate-scroll-hint {
+  animation: scroll-hint 1.8s ease-in-out infinite;
+}
