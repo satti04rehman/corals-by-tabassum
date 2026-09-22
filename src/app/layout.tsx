@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     default: "CORALS BY TABASSUM — Jewelry for Every Moment",
     template: "%s | CORALS BY TABASSUM",
   },
+  icons: { icon: "/favicon.svg" },
   description:
     "CORALS BY TABASSUM — a premium online jewelry destination. Discover elegant daily-wear pieces from trusted designers, crafted for every moment.",
   keywords: [
