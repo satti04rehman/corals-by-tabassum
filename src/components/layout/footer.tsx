@@ -149,6 +149,17 @@ export function Footer() {
             lovers.
           </p>
         </div>
+
+        {/* Practice build: say so plainly, so no visitor mistakes this for a
+            trading store. Orders placed here are not charged and not shipped. */}
+        <div className="border-t border-ivory/10 py-5 text-xs leading-relaxed text-ivory/45">
+          <p className="max-w-3xl">
+            <span className="text-ivory/70">Demonstration project.</span>{" "}
+            Corals by Tabassum is a portfolio build by Abdul Rehman Satti, not a
+            trading business. Products and prices are illustrative, reviews are
+            samples, and the cart does not take payment or dispatch goods.
+          </p>
+        </div>
       </div>
     </footer>
   );
