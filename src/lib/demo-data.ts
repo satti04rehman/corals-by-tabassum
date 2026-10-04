@@ -90,7 +90,7 @@ function demoProduct(input: {
     gender: input.gender,
     imageUrl: img(input.photo),
     ratingAvg: input.rating ?? 4.5,
-    ratingCount: input.ratingCount ?? 24,
+    ratingCount: input.ratingCount ?? 0,
     stockStatus: st <= 0 ? "OUT_OF_STOCK" : st < 5 ? "LOW_STOCK" : "IN_STOCK",
     stock: st,
     isNewArrival: input.newArrival ?? false,
@@ -151,7 +151,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     style: "Daily Wear",
     colors: ["Gold"],
     rating: 4.8,
-    ratingCount: 132,
+    ratingCount: 0,
     bestSeller: true,
     featured: true,
     stock: 24,
@@ -186,7 +186,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     style: "Party Wear",
     colors: ["Pearl", "Silver"],
     rating: 4.7,
-    ratingCount: 86,
+    ratingCount: 0,
     bestSeller: true,
     stock: 18,
     description:
@@ -220,7 +220,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     style: "Daily Wear",
     colors: ["Gold"],
     rating: 4.6,
-    ratingCount: 210,
+    ratingCount: 0,
     featured: true,
     stock: 40,
     description:
@@ -254,7 +254,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     style: "Minimal",
     colors: ["Rose Gold"],
     rating: 4.9,
-    ratingCount: 64,
+    ratingCount: 0,
     newArrival: true,
     stock: 15,
     description:
@@ -288,7 +288,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     style: "Bridal",
     colors: ["White", "Gold"],
     rating: 4.9,
-    ratingCount: 41,
+    ratingCount: 0,
     featured: true,
     newArrival: true,
     stock: 6,
@@ -323,7 +323,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     style: "Minimal",
     colors: ["Gold", "White"],
     rating: 4.7,
-    ratingCount: 98,
+    ratingCount: 0,
     bestSeller: true,
     stock: 50,
     description:
@@ -357,7 +357,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     style: "Party Wear",
     colors: ["Gold"],
     rating: 4.8,
-    ratingCount: 77,
+    ratingCount: 0,
     bestSeller: true,
     stock: 20,
     description:
@@ -391,7 +391,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     style: "Daily Wear",
     colors: ["Rose Gold"],
     rating: 4.6,
-    ratingCount: 123,
+    ratingCount: 0,
     featured: true,
     stock: 32,
     description:
@@ -425,7 +425,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     style: "Party Wear",
     colors: ["Silver", "Rainbow"],
     rating: 4.8,
-    ratingCount: 59,
+    ratingCount: 0,
     newArrival: true,
     stock: 12,
     description:
@@ -459,7 +459,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     style: "Classic",
     colors: ["Rose Gold", "Pearl"],
     rating: 4.5,
-    ratingCount: 44,
+    ratingCount: 0,
     stock: 16,
     description:
       "A curated mini collection of rose-gold rings with delicate stone details — made for mixing, matching and gifting.",
@@ -492,7 +492,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
     style: "Bridal",
     colors: ["Gold", "White"],
     rating: 4.9,
-    ratingCount: 35,
+    ratingCount: 0,
     featured: true,
     newArrival: true,
     stock: 7,
@@ -510,6 +510,7 @@ export const DEMO_PRODUCTS: DemoProduct[] = [
   }),
 ];
 
+// Demo/practice build: sample reviews for layout only — not real customers.
 export const DEMO_REVIEWS = [
   {
     id: "r1",
@@ -518,7 +519,7 @@ export const DEMO_REVIEWS = [
     content:
       "The necklace looked even better than the pictures. Packaging was premium and delivery was fast. Highly recommended!",
     date: new Date("2026-08-12"),
-    verified: true,
+    verified: false,
     productId: "p_chain_necklace",
   },
   {
@@ -528,7 +529,7 @@ export const DEMO_REVIEWS = [
     content:
       "Gorgeous piece. Feels much more expensive than it is. The finish is stunning and it goes with everything.",
     date: new Date("2026-07-28"),
-    verified: true,
+    verified: false,
     productId: "p_pearl_earrings",
   },
   {
@@ -538,7 +539,7 @@ export const DEMO_REVIEWS = [
     content:
       "Bought the kundan set for my sister's mehndi. The stonework is beautiful and the set feels substantial. Delivery took 3 days.",
     date: new Date("2026-08-03"),
-    verified: true,
+    verified: false,
     productId: "p_kundan_set",
   },
   {
@@ -548,7 +549,7 @@ export const DEMO_REVIEWS = [
     content:
       "Ordered the hoops for daily wear and they haven't left my ears since. No tarnish after a month of use!",
     date: new Date("2026-06-19"),
-    verified: true,
+    verified: false,
     productId: "p_gold_hoops",
   },
   {
@@ -558,30 +559,31 @@ export const DEMO_REVIEWS = [
     content:
       "Gifted the heart pendant to my wife — she loved it. Great quality at this price point, and the gift box was lovely.",
     date: new Date("2026-05-30"),
-    verified: true,
+    verified: false,
     productId: "p_heart_pendant",
   },
 ];
 
+// Demo/practice build: sample reviews for layout only — not real customers.
 export const DEMO_TESTIMONIALS = [
   {
     quote:
       "Coming from a big jewellery store, the experience here was honestly smoother. Great pieces, real quality.",
     author: "Ayesha R.",
-    role: "Verified Purchase",
+    role: "Sample review",
     rating: 5,
   },
   {
     quote:
       "I found exactly the piece I wanted using the piece finder. It felt like they read my mind.",
     author: "Hira M.",
-    role: "Verified Purchase",
+    role: "Sample review",
     rating: 5,
   },
   {
     quote: "A timeless necklace, delivered in two days. This is how online shopping should feel.",
     author: "Zain B.",
-    role: "Verified Purchase",
+    role: "Sample review",
     rating: 5,
   },
 ];
